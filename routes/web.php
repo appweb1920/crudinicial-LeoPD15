@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/recolector', 'RecolectorController@index');
+Route::post('/recolector', 'RecolectorController@store');
+Route::get('/recolector/editar/{id}', 'RecolectorController@edit');
+Route::post('/recolector/editar/update', 'RecolectorController@update');
+Route::get('/recolector/eliminar/{id}', 'RecolectorController@destroy');

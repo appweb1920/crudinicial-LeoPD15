@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Recolector;
 use Illuminate\Http\Request;
 
+
 class RecolectorController extends Controller
 {
     /**
@@ -14,7 +15,8 @@ class RecolectorController extends Controller
      */
     public function index()
     {
-        //
+        $r = Recolector::all();
+        return view('recolector')->with('recolectores',$r);
     }
 
     /**
@@ -33,9 +35,13 @@ class RecolectorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $recolectorNuevo)
     {
-        //
+        $recolector = new Recolector;
+        $recolector->nombre = $recolectorNuevo->nombre;
+        $recolector->dias = $recolectorNuevo->dias;
+        $recolector->save();
+        return redirect('/recolector');
     }
 
     /**
@@ -55,9 +61,11 @@ class RecolectorController extends Controller
      * @param  \App\Recolector  $recolector
      * @return \Illuminate\Http\Response
      */
-    public function edit(Recolector $recolector)
+    public function edit($id)
     {
-        //
+        $r = Recolector::find($id);
+        //$r = Recolector::table('Recolectores')->where('idRecolector', '=', $idRecolector)->get();
+        return view('editaRecolector')->with('recolector',$r);
     }
 
     /**
@@ -67,9 +75,16 @@ class RecolectorController extends Controller
      * @param  \App\Recolector  $recolector
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Recolector $recolector)
+    public function update(Request $request)
     {
-        //
+        $r = Recolector::find($request->idRecolector);
+        if(!is_null($r)){
+            $r->nombre = $request->nombre;
+            $r->dias = $request->dias;
+            $r->save();
+        }
+        return redirect('/recolector');
+
     }
 
     /**
@@ -78,8 +93,10 @@ class RecolectorController extends Controller
      * @param  \App\Recolector  $recolector
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Recolector $recolector)
+    public function destroy($id)
     {
-        //
+        $r = Recolector::find($id);
+        $r ->delete();
+        return redirect('/recolector');
     }
 }
