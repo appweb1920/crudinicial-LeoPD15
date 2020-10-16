@@ -62,9 +62,10 @@ class PuntoController extends Controller
      * @param  \App\PuntoRecoleccion  $puntoRecoleccion
      * @return \Illuminate\Http\Response
      */
-    public function edit(PuntoRecoleccion $puntoRecoleccion)
+    public function edit($id)
     {
-        //
+        $p = PuntoRecoleccion::find($id);
+        return view('editaPunto')->with('punto', $p);
     }
 
     /**
@@ -74,9 +75,17 @@ class PuntoController extends Controller
      * @param  \App\PuntoRecoleccion  $puntoRecoleccion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PuntoRecoleccion $puntoRecoleccion)
+    public function update(Request $punto)
     {
-        //
+        $p = PuntoRecoleccion::find($punto->idPunto);
+        if(!is_null($p)){
+            $p->direccion = $punto->direccion;
+            $p->tipo_de_basura = $punto->tipo_de_basura;
+            $p->hora_apertura = $punto->hora_apertura;
+            $p->hora_cierre = $punto->hora_cierre;
+            $p->save();
+        }
+        return redirect('/puntos');
     }
 
     /**
