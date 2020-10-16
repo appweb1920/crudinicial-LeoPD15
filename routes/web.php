@@ -28,3 +28,8 @@ Route::post('/puntoN', 'PuntoController@store');
 Route::get('/puntos/editar/{id}', 'PuntoController@edit');
 Route::post('/puntos/editar/update', 'PuntoController@update'); 
 Route::get('/puntos/eliminar/{id}', 'PuntoController@destroy');
+
+Route::get('/detalles', 'DetalleRecolectorController@index');
+//Route::get('/detalles/editar/{$id}', 'DetalleRecolectorController@edit');
+Route::get('/detalles/editar/{id}', 'DetalleRecolectorController@edit');
+Route::get('/detalles/asociar/{id}{id}', 'DetalleRecolectorController@update');

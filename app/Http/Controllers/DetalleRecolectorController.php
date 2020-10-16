@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\DetalleRecolector;
 use Illuminate\Http\Request;
+use App\Recolector;
+use App\PuntoRecoleccion;
+use Illuminate\Support\Facades\DB;
 
 class DetalleRecolectorController extends Controller
 {
@@ -14,7 +17,8 @@ class DetalleRecolectorController extends Controller
      */
     public function index()
     {
-        //
+        $recolectores = Recolector::all();
+        return view('detalleRecolector')->with('recolectores', $recolectores);
     }
 
     /**
@@ -55,9 +59,24 @@ class DetalleRecolectorController extends Controller
      * @param  \App\DetalleRecolector  $detalleRecolector
      * @return \Illuminate\Http\Response
      */
-    public function edit(DetalleRecolector $detalleRecolector)
+    public function edit($id)
     {
-        //
+        $r = Recolector::find($id);
+        $puntosN = DB::select(
+            'SELECT puntos_de_recoleccion.idPunto, puntos_de_recoleccion.tipo_de_basura, puntos_de_recoleccion.direccion
+            FROM puntos_de_recoleccion
+            WHERE puntos_de_recoleccion.idPunto NOT IN(
+                SELECT puntos_de_recoleccion.idPunto
+                FROM detalle_recolector 
+                INNER JOIN puntos_de_recoleccion
+                ON detalle_recolector.id_puntoReciclaje = puntos_de_recoleccion.idPunto
+                INNER JOIN recolectores
+                ON detalle_recolector.id_Recolector = recolectores.idRecolector
+                WHERE  recolectores.idRecolector='.$id.'
+            )
+            ');
+        return view('editaDetalles')->with('recolector', $r)->with('puntosSin', $puntosN);
+        
     }
 
     /**
@@ -67,9 +86,9 @@ class DetalleRecolectorController extends Controller
      * @param  \App\DetalleRecolector  $detalleRecolector
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DetalleRecolector $detalleRecolector)
+    public function update($idR, $idP)
     {
-        //
+        return redirect('')
     }
 
     /**

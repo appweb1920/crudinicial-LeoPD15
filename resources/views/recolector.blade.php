@@ -8,6 +8,7 @@
 <body>
     <div>
         <h1>-Recolectores-</h1>
+        <a href="/detalles">Detalles recolectores</a>
 
         <p>Registrar recolector:</p>
 

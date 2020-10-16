@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Puntos de Recolección</h1>
-    <a href="">Detalles recolectores</a>
+    <a href="/detalles">Detalles recolectores</a>
     <p>-Nuevo punto-</p>
 
     <div>
