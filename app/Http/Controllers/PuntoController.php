@@ -14,7 +14,8 @@ class PuntoController extends Controller
      */
     public function index()
     {
-        //
+        $puntos = PuntoRecoleccion::all();
+        return view('puntoRecoleccion')->with('puntos', $puntos);
     }
 
     /**
@@ -33,9 +34,15 @@ class PuntoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $puntoNuevo)
     {
-        //
+        $punto = new PuntoRecoleccion;
+        $punto->direccion = $puntoNuevo->direccion;
+        $punto->tipo_de_basura = $puntoNuevo->tipo_de_basura;
+        $punto->hora_apertura = $puntoNuevo->hora_apertura;
+        $punto->hora_cierre = $puntoNuevo->hora_cierre;
+        $punto->save();
+        return redirect('/puntos');
     }
 
     /**
@@ -78,8 +85,10 @@ class PuntoController extends Controller
      * @param  \App\PuntoRecoleccion  $puntoRecoleccion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PuntoRecoleccion $puntoRecoleccion)
+    public function destroy($id)
     {
-        //
+        $p = PuntoRecoleccion::find($id);
+        $p ->delete();
+        return redirect('/puntos');
     }
 }
