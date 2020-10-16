@@ -88,7 +88,11 @@ class DetalleRecolectorController extends Controller
      */
     public function update($idR, $idP)
     {
-        return redirect('')
+        $detalle = new DetalleRecolector;
+        $detalle->id_Recolector = $idR;
+        $detalle->id_PuntoReciclaje = $idP;
+        $detalle->save();
+        return redirect('/detalles/editar/'.$idR);
     }
 
     /**
@@ -97,8 +101,9 @@ class DetalleRecolectorController extends Controller
      * @param  \App\DetalleRecolector  $detalleRecolector
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DetalleRecolector $detalleRecolector)
+    public function destroy($idR, $idP)
     {
-        //
+        DB::table('detalle_recolector')->where('id_Recolector', $idR)->where('id_PuntoReciclaje', $idP)->delete();
+        return redirect('/detalles/editar/'.$idR);
     }
 }

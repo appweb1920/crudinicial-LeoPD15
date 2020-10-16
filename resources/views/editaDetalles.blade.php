@@ -16,8 +16,9 @@
             Puntos asociados: <br>
             @foreach($recolector->getPuntos() as $p)
                 @if(!is_null($p))
-                    Punto: {{$p->idPunto}} ; Tipo de Basura: {{$p->tipo_de_basura}} <br>
-                    Direccion: {{$p->direccion}} <br>
+                    Punto: {{$p->idPunto}} <a href="/detalles/elimina/{{$recolector->idRecolector}} {{$p->idPunto}}">Eliminar asociación</a> <br>
+                    Tipo de Basura: {{$p->tipo_de_basura}} <br>
+                    Direccion: {{$p->direccion}} <br><br>
                 @endif
             @endforeach
         @endif
@@ -28,7 +29,7 @@
         <p>Puntos disponibles a asociar: </p>
         @if(!is_null($puntosSin))
             @foreach($puntosSin as $p)
-                Punto: {{$p->idPunto}} <br> <a href="">Asociar</a>
+                Punto: {{$p->idPunto}}  <a href="/detalles/asociar/{{$recolector->idRecolector}} {{$p->idPunto}}">Asociar</a> <br>
                 Tipo de Basura: {{$p->tipo_de_basura}} <br>
                 Direccion: {{$p->direccion}} <br> <br>
             @endforeach

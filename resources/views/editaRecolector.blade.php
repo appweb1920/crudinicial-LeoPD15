@@ -8,7 +8,7 @@
 <body>
     <h1>Edicion de Recoletor</h1>
 
-    <form action="/update" method="post">
+    <form action="/recolector/editar/update" method="post">
         @csrf
         <input type="hidden" name="idRecolector" value="{{$recolector->idRecolector}}">
         <input type="text" name="nombre" value="{{$recolector->nombre}}">

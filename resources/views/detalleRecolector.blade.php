@@ -19,7 +19,7 @@
                 @foreach($r->getPuntos() as $p)
                     @if(!is_null($p))
                         Punto: {{$p->idPunto}} ; Tipo de Basura: {{$p->tipo_de_basura}} <br>
-                        Direccion: {{$p->direccion}} <br>
+                        Direccion: {{$p->direccion}} <br><br>
                     @endif
                 @endforeach
 

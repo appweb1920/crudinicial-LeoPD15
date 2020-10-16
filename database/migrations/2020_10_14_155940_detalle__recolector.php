@@ -17,8 +17,8 @@ class DetalleRecolector extends Migration
             $table->unsignedBigInteger("id_PuntoReciclaje");
             $table->unsignedBigInteger("id_Recolector");
             $table->timestamps();
-            $table->foreign('id_PuntoReciclaje')->references('idPunto')->on('Puntos_de_Recoleccion')->ondelete('cascade');
-            $table->foreign('id_Recolector')->references('idRecolector')->on('Recolectores')->ondelete('cascade');
+            $table->foreign('id_PuntoReciclaje')->references('idPunto')->on('Puntos_de_Recoleccion');
+            $table->foreign('id_Recolector')->references('idRecolector')->on('Recolectores');
         });
     }
 
