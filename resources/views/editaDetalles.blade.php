@@ -20,6 +20,7 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/recolector">Recolectores</a></li>
                 <li><a href="/puntos">Puntos de Recolección</a></li>
+                <li><a href="/detalles">volver</a></li>
             </ul>
         </div>
     </nav>
@@ -59,7 +60,6 @@
             </div>
         </div>
         @endif
-
         <div class="col s6">
             <p>Puntos disponibles a asociar</p>
             <div class="row">

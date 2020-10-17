@@ -19,7 +19,7 @@
             <div class="nav-wrapper  red darken-4">
                 <a href="#" class="brand-logo">Recolectores</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="/detalles">Detalles recolectores</a></li>
+                    <li><a href="/detalles">Asociaciones por recolectores</a></li>
                 </ul>
             </div>
         </nav>
