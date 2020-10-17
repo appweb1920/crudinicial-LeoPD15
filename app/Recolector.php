@@ -24,6 +24,7 @@ class Recolector extends Model
             ON detalle_recolector.id_Recolector = recolectores.idRecolector
             WHERE recolectores.idRecolector=' . $this->idRecolector
         );
+
         return $puntos;
     }
 

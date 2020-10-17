@@ -76,7 +76,6 @@ class DetalleRecolectorController extends Controller
             )
             ');
         return view('editaDetalles')->with('recolector', $r)->with('puntosSin', $puntosN);
-        
     }
 
     /**
