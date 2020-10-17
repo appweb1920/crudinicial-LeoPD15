@@ -24,15 +24,11 @@
             </ul>
         </div>
     </nav>
-
-
     <div class="row">
         <div class="col s10">
 
         </div>
     </div>
-
-
     <div style="padding:10px;">
         @if(!is_null($recolectores))
             @foreach($recolectores as $r)
@@ -42,14 +38,13 @@
                     <table>
                         <thead>
                             <tr>
-                            <th>idPunto</th>
-                            <th>Tipo de Basura</th>
-                            <th>Direccion</th>
+                                <th>idPunto</th>
+                                <th>Tipo de Basura</th>
+                                <th>Direccion</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            
                             @foreach($r->getPuntos() as $p)            
                             @if(!is_null($p))
                             <tr>

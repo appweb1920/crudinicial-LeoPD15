@@ -24,8 +24,6 @@
             </ul>
         </div>
     </nav>
-
-    
     <div class="row">
         @if(!is_null($recolector))
         <div class="col s12"><h5>Recolector: {{$recolector->nombre}}</h5></div>
@@ -91,35 +89,5 @@
             </div>
         </div>
     </div>    
-    
-
-    <!--<div style="padding-left:10px;">
-        @if(!is_null($recolector))
-            <p>Recolector: {{$recolector->nombre}}</p>
-
-            Puntos asociados: <br>
-            @foreach($recolector->getPuntos() as $p)
-                @if(!is_null($p))
-                    Punto: {{$p->idPunto}} <a href="/detalles/elimina/{{$recolector->idRecolector}} {{$p->idPunto}}">Eliminar asociación</a> <br>
-                    Tipo de Basura: {{$p->tipo_de_basura}} <br>
-                    Direccion: {{$p->direccion}} <br><br>
-                @endif
-            @endforeach
-        @endif
-    </div>-->
-
-    <!--<div>
-    ----------------------------------------------------
-        <p>Puntos disponibles a asociar: </p>
-        @if(!is_null($puntosSin))
-            @foreach($puntosSin as $p)
-                Punto: {{$p->idPunto}}  <a href="/detalles/asociar/{{$recolector->idRecolector}} {{$p->idPunto}}">Asociar</a> <br>
-                Tipo de Basura: {{$p->tipo_de_basura}} <br>
-                Direccion: {{$p->direccion}} <br> <br>
-            @endforeach
-        @endif
-    </div>-->
-
-
 </body>
 </html>

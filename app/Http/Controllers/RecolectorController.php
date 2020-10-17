@@ -15,6 +15,7 @@ class RecolectorController extends Controller
      */
     public function index()
     {
+        //Se obtienen y envían todos los recolectores a la vista
         $r = Recolector::all();
         return view('recolector')->with('recolectores',$r);
     }
@@ -37,6 +38,7 @@ class RecolectorController extends Controller
      */
     public function store(Request $recolectorNuevo)
     {
+        //Se guarda un nuevo recolector
         $recolector = new Recolector;
         $recolector->nombre = $recolectorNuevo->nombre;
         $recolector->dias = $recolectorNuevo->dias;
@@ -63,8 +65,8 @@ class RecolectorController extends Controller
      */
     public function edit($id)
     {
+        //Se encuentra el recolector a editar
         $r = Recolector::find($id);
-        //$r = Recolector::table('Recolectores')->where('idRecolector', '=', $idRecolector)->get();
         return view('editaRecolector')->with('recolector',$r);
     }
 
@@ -77,6 +79,7 @@ class RecolectorController extends Controller
      */
     public function update(Request $request)
     {
+        //Se edita el recolector en caso de existir
         $r = Recolector::find($request->idRecolector);
         if(!is_null($r)){
             $r->nombre = $request->nombre;

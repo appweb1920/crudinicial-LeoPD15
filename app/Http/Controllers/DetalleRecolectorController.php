@@ -17,6 +17,7 @@ class DetalleRecolectorController extends Controller
      */
     public function index()
     {
+        //Se obtienen y envían todos los recolectores a la vista
         $recolectores = Recolector::all();
         return view('detalleRecolector')->with('recolectores', $recolectores);
     }
@@ -61,7 +62,9 @@ class DetalleRecolectorController extends Controller
      */
     public function edit($id)
     {
+        //Se encuentra el Recolector para obtener su nombre y los puntos a lo que está asociado.
         $r = Recolector::find($id);
+        //Se obtienen los puntos a los que NO está asociado el recolector según su id
         $puntosN = DB::select(
             'SELECT puntos_de_recoleccion.idPunto, puntos_de_recoleccion.tipo_de_basura, puntos_de_recoleccion.direccion
             FROM puntos_de_recoleccion
@@ -75,6 +78,7 @@ class DetalleRecolectorController extends Controller
                 WHERE  recolectores.idRecolector='.$id.'
             )
             ');
+        //Se regresan los datos del recolector así como los puntos a los que NO está asociado
         return view('editaDetalles')->with('recolector', $r)->with('puntosSin', $puntosN);
     }
 
@@ -87,6 +91,7 @@ class DetalleRecolectorController extends Controller
      */
     public function update($idR, $idP)
     {
+        //Se guarda un nuevo dato (idRecolector, idPunto) en la tabla detalleRecolector
         $detalle = new DetalleRecolector;
         $detalle->id_Recolector = $idR;
         $detalle->id_PuntoReciclaje = $idP;
@@ -102,6 +107,7 @@ class DetalleRecolectorController extends Controller
      */
     public function destroy($idR, $idP)
     {
+        //Se elimina la asociación del recolector con el punto
         DB::table('detalle_recolector')->where('id_Recolector', $idR)->where('id_PuntoReciclaje', $idP)->delete();
         return redirect('/detalles/editar/'.$idR);
     }

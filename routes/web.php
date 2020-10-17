@@ -30,7 +30,6 @@ Route::post('/puntos/editar/update', 'PuntoController@update');
 Route::get('/puntos/eliminar/{id}', 'PuntoController@destroy');
 
 Route::get('/detalles', 'DetalleRecolectorController@index');
-//Route::get('/detalles/editar/{$id}', 'DetalleRecolectorController@edit');
 Route::get('/detalles/editar/{id}', 'DetalleRecolectorController@edit');
 Route::get('/detalles/asociar/{idR} {idP}', 'DetalleRecolectorController@update');
 Route::get('/detalles/elimina/{idR} {idP}', 'DetalleRecolectorController@destroy');

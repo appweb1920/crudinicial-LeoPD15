@@ -88,16 +88,5 @@
         </table>
         </div>
     </div>
-    <!--@if(!is_null($puntos))
-        @foreach($puntos as $p)
-             <b>- {{$p->idPunto}} </b> <a href="/puntos/editar/{{$p->idPunto}}"> Editar </a>
-                                        / <a href="/puntos/eliminar/{{$p->idPunto}}"> Eliminar </a><br>
-            Direccion: {{$p->direccion}} <br>
-            Tipo de Recoleccion: {{$p->tipo_de_basura}} <br>
-            Hora de Apertura: {{$p->hora_apertura}} 
-            Hora de Cierre: {{$p->hora_cierre}} <br>
-        @endforeach
-    @endif -->
-
 </body>
 </html>

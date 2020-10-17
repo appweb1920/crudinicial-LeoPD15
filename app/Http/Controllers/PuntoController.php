@@ -14,6 +14,7 @@ class PuntoController extends Controller
      */
     public function index()
     {
+        //Se obtienen y envían todos los puntos a la vista
         $puntos = PuntoRecoleccion::all();
         return view('puntoRecoleccion')->with('puntos', $puntos);
     }
@@ -36,6 +37,7 @@ class PuntoController extends Controller
      */
     public function store(Request $puntoNuevo)
     {
+        //Se guarda el nuevo punto de reciclaje
         $punto = new PuntoRecoleccion;
         $punto->direccion = $puntoNuevo->direccion;
         $punto->tipo_de_basura = $puntoNuevo->tipo_de_basura;
@@ -64,6 +66,7 @@ class PuntoController extends Controller
      */
     public function edit($id)
     {
+        //se obtiene el punto a editar
         $p = PuntoRecoleccion::find($id);
         return view('editaPunto')->with('punto', $p);
     }
@@ -77,6 +80,7 @@ class PuntoController extends Controller
      */
     public function update(Request $punto)
     {
+        //Se edita el punto correspondiente del id
         $p = PuntoRecoleccion::find($punto->idPunto);
         if(!is_null($p)){
             $p->direccion = $punto->direccion;
@@ -96,6 +100,7 @@ class PuntoController extends Controller
      */
     public function destroy($id)
     {
+        //Se elimina el punto de reciclaje
         $p = PuntoRecoleccion::find($id);
         $p ->delete();
         return redirect('/puntos');
