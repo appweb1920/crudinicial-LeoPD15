@@ -37,7 +37,7 @@
         </div>
 
         <div class="row">
-            <div class="col s8 offset-s2">
+            <div class="col s8 offset-s1">
                 <table>
                     <thead>
                         <tr>
