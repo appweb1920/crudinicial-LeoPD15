@@ -20,29 +20,39 @@
     </script>
 </head>
 <body>
-    <h1>Puntos de Recolección</h1>
-    <a href="/detalles">Detalles recolectores</a>
-    <p>-Nuevo punto-</p>
+    <nav>
+        <div class="nav-wrapper  red darken-4">
+            <a href="#" class="brand-logo">Puntos de Recolección</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/detalles">Detalles recolectores</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <div style="padding:40px;">
-        <form action="/puntoN" method="post" >
-            @csrf
-            Dirección: <input type="text" name="direccion" placeholder="Direccion" size="50"><br>
-            <br>Tipo de Basura:
-                <div class="input-field col s12">
-                <select name="tipo_de_basura" >
-                    <option value="Vidrio">Vídrio</option>
-                    <option value="Carton">Cartón</option>
-                    <option value="Plastico">Plástico</option>
-                    <option value="Papel">Papel</option>
-                </select>
-                </div><br>
-            
-            <br>Hora de apertura:  <input type="time" name="hora_apertura" ><br>
-            <br>Hora de cierre: <input type="time" name="hora_cierre"><br>
-            <input type="submit" value='Registrar'>
-        </form>
-    </div>
+
+    
+    <p>-Nuevo punto-</p>
+        <div class="row">
+        <div class="col s6">
+            <form action="/puntoN" method="post" >
+                @csrf
+                Dirección: <input type="text" name="direccion" placeholder="Direccion" size="50"><br>
+                <br>Tipo de Basura:
+                    
+                    <select name="tipo_de_basura" >
+                        <option value="Vidrio">Vídrio</option>
+                        <option value="Carton">Cartón</option>
+                        <option value="Plastico">Plástico</option>
+                        <option value="Papel">Papel</option>
+                    </select>
+                    <br>
+                
+                <br>Hora de apertura:  <input type="time" name="hora_apertura" ><br>
+                <br>Hora de cierre: <input type="time" name="hora_cierre"><br>
+                <input class="btn waves-effect waves-light" type="submit" value='Registrar'>
+            </form>
+            </div>
+        </div>
 
     <p>-Lista de puntos-</p>
     <div class="row">
@@ -55,6 +65,7 @@
                     <th>Tipo de Reciclaje</th>
                     <th>Hora de Apertura</th>
                     <th>Hora de Cierre</th>
+                    <th></th>
                 </tr>
             </thead>
 
@@ -62,12 +73,13 @@
                 @if(!is_null($puntos))
                     @foreach($puntos as $p)
                     <tr>
-                        <td>{{$p->idPunto}} <a href="/puntos/editar/{{$p->idPunto}}"> Editar </a>
-                                        / <a href="/puntos/eliminar/{{$p->idPunto}}"> Eliminar </a></td>
+                        <td>{{$p->idPunto}}</td>
                         <td>{{$p->direccion}} </td> 
                         <td> {{$p->tipo_de_basura}} </td>
                         <td> {{$p->hora_apertura}} </td>
                         <td> {{$p->hora_cierre}} </td>
+                        <td><a href="/puntos/editar/{{$p->idPunto}}"> Editar </a>/
+                                <a href="/puntos/eliminar/{{$p->idPunto}}"> Eliminar </a></td>
                     </tr>
                     @endforeach
                 @endif    
