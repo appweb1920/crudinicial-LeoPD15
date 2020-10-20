@@ -25,15 +25,15 @@
             <a href="#" class="brand-logo">Puntos de Recolección</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/detalles">Asociaciones por recolectores</a></li>
+                <li><a href="/recolector">Recolectores</a></li>
             </ul>
         </div>
     </nav>
 
 
-    
-    <p>-Nuevo punto-</p>
         <div class="row">
         <div class="col s6">
+        <p>Nuevo punto de recolección:</p>
             <form action="/puntoN" method="post" >
                 @csrf
                 Dirección: <input type="text" name="direccion" placeholder="Direccion" size="50"><br>
@@ -54,9 +54,10 @@
             </div>
         </div>
 
-    <p>-Lista de puntos-</p>
+    
     <div class="row">
         <div class="col s8 offset-s1">
+        <p> <b>Puntos de recolección</b> </p>
         <table >
             <thead>
                 <tr>

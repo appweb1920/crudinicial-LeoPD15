@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', 'RecolectorController@index');
 Route::get('/recolector', 'RecolectorController@index');
 Route::post('/recolector', 'RecolectorController@store');
 Route::get('/recolector/editar/{id}', 'RecolectorController@edit');

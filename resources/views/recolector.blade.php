@@ -20,13 +20,15 @@
                 <a href="#" class="brand-logo">Recolectores</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="/detalles">Asociaciones por recolectores</a></li>
+                    <li><a href="/puntos">Puntos de Recolección</a></li>
                 </ul>
             </div>
         </nav>
         
-        <p>Registrar recolector:</p>
+        
         <div class="row">
             <div class="col s4">
+            <p>Registrar recolector:</p>
                 <form action="/recolector" method="POST">
                     @csrf
                     <input type="text" name="nombre" id="nombre" placeholder="Nombre">
@@ -37,7 +39,8 @@
         </div>
 
         <div class="row">
-            <div class="col s8 offset-s1">
+            <div class="col s7 offset-s1">
+            <p> <b>Recolectores</b> </p>
                 <table>
                     <thead>
                         <tr>

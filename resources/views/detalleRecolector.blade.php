@@ -32,7 +32,7 @@
     <div style="padding:10px;">
         @if(!is_null($recolectores))
             @foreach($recolectores as $r)
-            <br>{{$r->idRecolector}} - <a href="/detalles/editar/{{$r->idRecolector}}">{{$r->nombre}}</a> <br>
+            <br>{{$r->idRecolector}} - <a href="/detalles/editar/{{$r->idRecolector}}">{{$r->nombre}}</a>, {{$r->dias}} <br>
             <div class="row">
                 <div class="col s6">
                     <table>
