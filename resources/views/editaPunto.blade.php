@@ -21,6 +21,15 @@
 
 </head>
 <body>
+@guest
+
+    @if(Route::has('register'))
+        <div>
+            Error, necesitas <a href="{{ route('register') }}">registrarte</a>
+        </div>
+    @endif
+
+    @else
 
     <nav>
         <div class="nav-wrapper red darken-4">
@@ -52,6 +61,6 @@
         </form>
         </div>
     </div>
-
+@endguest
 </body>
 </html>

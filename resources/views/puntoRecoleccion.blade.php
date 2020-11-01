@@ -20,6 +20,15 @@
     </script>
 </head>
 <body>
+@guest
+
+    @if(Route::has('register'))
+        <div>
+            Error, necesitas <a href="{{ route('register') }}">registrarte</a>
+        </div>
+    @endif
+
+    @else
     <nav>
         <div class="nav-wrapper  red darken-4">
             <a href="#" class="brand-logo">Puntos de Recolección</a>
@@ -30,7 +39,7 @@
         </div>
     </nav>
 
-
+    @if(Auth::user()->rol == 'administrador')
         <div class="row">
         <div class="col s6">
         <p>Nuevo punto de recolección:</p>
@@ -53,7 +62,7 @@
             </form>
             </div>
         </div>
-
+    @endif
     
     <div class="row">
         <div class="col s8 offset-s1">
@@ -89,5 +98,6 @@
         </table>
         </div>
     </div>
+@endguest
 </body>
 </html>

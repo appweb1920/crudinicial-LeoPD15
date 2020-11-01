@@ -36,7 +36,7 @@
             </div>
         </nav>
         
-        
+        @if(Auth::user()->rol == 'administrador')
         <div class="row">
             <div class="col s4">
             <p>Registrar recolector:</p>
@@ -48,7 +48,7 @@
                 </form>
             </div>
         </div>
-
+        @endif
         <div class="row">
             <div class="col s7 offset-s1">
             <p> <b>Recolectores</b> </p>
