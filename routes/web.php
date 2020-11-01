@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
- /*Route::get('/', function () {
+ Route::get('/', function () {
      return view('welcome');
- });*/
+ });
 
 //Rutas recolectores
-Route::get('/', 'RecolectorController@index');
+//Route::get('/', 'RecolectorController@index');
 Route::get('/recolector', 'RecolectorController@index');
 Route::post('/recolector', 'RecolectorController@store');
 Route::get('/recolector/editar/{id}', 'RecolectorController@edit');
@@ -35,3 +35,6 @@ Route::get('/detalles', 'DetalleRecolectorController@index');
 Route::get('/detalles/editar/{id}', 'DetalleRecolectorController@edit');
 Route::get('/detalles/asociar/{idR} {idP}', 'DetalleRecolectorController@update');
 Route::get('/detalles/elimina/{idR} {idP}', 'DetalleRecolectorController@destroy');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -14,6 +14,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
+
+    @guest
+
+    @if(Route::has('register'))
+        <div>
+            Error, necesitas <a href="{{ route('register') }}">registrarte</a>
+        </div>
+    @endif
+
+    @else
+
     <div>
         <nav>
             <div class="nav-wrapper  red darken-4">
@@ -66,5 +77,6 @@
             </div>
         </div>
     </div>
+    @endguest
 </body>
 </html>

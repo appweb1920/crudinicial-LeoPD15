@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!--JQUERY-->
+    
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
-    <!-- Compiled and minified CSS -->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> 
 
-    <!-- Compiled and minified JavaScript -->
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+
 </head>
+
 <body>
+           
     <nav>
         <div class="nav-wrapper  red darken-4">
             <a href="#" class="brand-logo">Puntos asociados por recolector</a>
