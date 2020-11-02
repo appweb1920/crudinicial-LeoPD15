@@ -15,7 +15,7 @@ class PuntosDeReciclaje extends Migration
     {
         schema::create('Puntos_de_Recoleccion', function(Blueprint $table){            
             $table->bigIncrements("idPunto");
-            $table->string("tipo de basura");
+            $table->string("tipo_de_basura");
             $table->string("direccion");            
             $table->string("hora_apertura");
             $table->string("hora_cierre");

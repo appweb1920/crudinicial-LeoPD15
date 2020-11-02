@@ -12,6 +12,13 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('select').formSelect();
+            $(".dropdown-trigger").dropdown();
+        })
+    </script>
 </head>
 <body>
 @guest
@@ -24,12 +31,22 @@
 
     @else
     <nav>
+        <ul id="dropdown1" class="dropdown-content">
+            <li>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            salir
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
+            </li>
+        </ul>
         <div class="nav-wrapper  red darken-4">
             <a href="#" class="brand-logo">Detalles del Recolector</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/recolector">Recolectores</a></li>
                 <li><a href="/puntos">Puntos de Recolección</a></li>
                 <li><a href="/detalles">volver</a></li>
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">{{Auth::user()->name}}
+                        <i class="material-icons right"></i></a></li>
             </ul>
         </div>
     </nav>

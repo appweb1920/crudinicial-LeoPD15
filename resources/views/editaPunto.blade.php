@@ -16,6 +16,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $('select').formSelect();
+            $(".dropdown-trigger").dropdown();
         })
     </script>
 
@@ -32,11 +33,21 @@
     @else
 
     <nav>
+        <ul id="dropdown1" class="dropdown-content">
+            <li>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            salir
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
+            </li>
+        </ul>
         <div class="nav-wrapper red darken-4">
             <a href="#" class="brand-logo">Edición Punto de Recolección</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/puntos">Puntos de Recolección</a></li>
                 <li><a href="/detalleRecolector">Asociaciones por recolector</a></li>
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">{{Auth::user()->name}}
+                        <i class="material-icons right"></i></a></li>
             </ul>
         </div>
     </nav>

@@ -16,6 +16,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $('select').formSelect();
+            $(".dropdown-trigger").dropdown();
         })
     </script>
 </head>
@@ -30,11 +31,21 @@
 
     @else
     <nav>
+        <ul id="dropdown1" class="dropdown-content">
+            <li>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            salir
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
+            </li>
+        </ul>
         <div class="nav-wrapper  red darken-4">
             <a href="#" class="brand-logo">Puntos de Recolección</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/detalles">Asociaciones por recolectores</a></li>
                 <li><a href="/recolector">Recolectores</a></li>
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">{{Auth::user()->name}}
+                        <i class="material-icons right"></i></a></li>
             </ul>
         </div>
     </nav>
@@ -55,7 +66,6 @@
                         <option value="Papel">Papel</option>
                     </select>
                     <br>
-                
                 <br>Hora de apertura:  <input type="time" name="hora_apertura" ><br>
                 <br>Hora de cierre: <input type="time" name="hora_cierre"><br>
                 <input class="btn waves-effect waves-light" type="submit" value='Registrar'>
@@ -88,8 +98,9 @@
                         <td> {{$p->tipo_de_basura}} </td>
                         <td> {{$p->hora_apertura}} </td>
                         <td> {{$p->hora_cierre}} </td>
+                        @if(Auth::user()->rol == 'administrador')
                         <td><a href="/puntos/editar/{{$p->idPunto}}"> Editar </a>/
-                                <a href="/puntos/eliminar/{{$p->idPunto}}"> Eliminar </a></td>
+                                <a href="/puntos/eliminar/{{$p->idPunto}}"> Eliminar </a></td>@endif
                     </tr>
                     @endforeach
                 @endif    
