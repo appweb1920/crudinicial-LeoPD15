@@ -39,10 +39,12 @@ class RecolectorController extends Controller
     public function store(Request $recolectorNuevo)
     {
         //Se guarda un nuevo recolector
-        $recolector = new Recolector;
-        $recolector->nombre = $recolectorNuevo->nombre;
-        $recolector->dias = $recolectorNuevo->dias;
-        $recolector->save();
+        if(!is_null($recolectorNuevo->nombre)){
+            $recolector = new Recolector;
+            $recolector->nombre = $recolectorNuevo->nombre;
+            $recolector->dias = $recolectorNuevo->dias;
+            $recolector->save();   
+        }
         return redirect('/recolector');
     }
 
